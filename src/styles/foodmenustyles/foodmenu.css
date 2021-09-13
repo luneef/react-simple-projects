@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Allison&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allison&family=Dancing+Script&display=swap");
+/* Containers - Title */
+.foodmenu-container {
+  color: white;
+  background-color: #deba9d;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 4em;
+  text-align: center;
+}
+
+.food-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 12em;
+}
+
+.restaurant-name {
+  font-family: "Allison", cursive;
+  word-spacing: 0.2em;
+  font-size: 5rem;
+  border-bottom: 2px solid #b68d07;
+  margin-bottom: 0.3em;
+}
+
+/* Food Categories */
+.categories {
+  margin-bottom: 5em;
+}
+
+.cat-btn {
+  font-family: "Allison", cursive;
+  font-size: 1.7rem;
+  border: none;
+  background-color: #deba9d;
+  color: #f3eddf;
+  padding: 0 0.5em;
+  margin: 0 0.5em;
+  cursor: pointer;
+  border-radius: 2.5em;
+}
+
+.cat-btn:hover {
+  background-color: #9e7777;
+}
+
+.cat-btn:focus, .cat-btn:active {
+  background-color: #9e7777;
+}
+
+/* Food Item */
+.food-item {
+  width: 15em;
+  position: relative;
+  margin: 2em 2em;
+}
+
+.food-title {
+  font-family: "Dancing Script", cursive;
+  margin-top: 1.5em;
+}
+
+.food-border {
+  width: 280px;
+  height: 270px;
+  position: absolute;
+  top: -30px;
+  left: -20px;
+}
+
+.food-image {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.food-price {
+  color: #f5e8c7;
+}
+
+.food-desc {
+  color: #9e7777;
+  margin-top: 0.5em;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1425px) {
+  .food-item {
+    margin: 2em 2em;
+  }
+  .food-layout {
+    padding: 0 8em;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .food-item {
+    margin: 2em 2em;
+  }
+  .food-layout {
+    padding: 0 2em;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .restaurant-name {
+    font-size: 4rem;
+    margin-top: 1em;
+  }
+  .cat-btn {
+    margin: 0 0.2em;
+    margin-bottom: 0.3em;
+  }
+  .food-layout {
+    padding: 0 3em;
+  }
+  .food-item {
+    margin: 2em 0.5em;
+  }
+}
+
+@media screen and (max-width: 737px) {
+  .foodmenu-container {
+    padding: 2em 1em;
+  }
+  .restaurant-name {
+    font-size: 3rem;
+    margin-top: 1em;
+    padding-bottom: 0.3em;
+  }
+  .categories {
+    margin: 0 3em;
+  }
+  .cat-btn {
+    font-size: 1.5rem;
+  }
+  .food-item {
+    width: 7em;
+    margin: 2em 1.3em;
+  }
+  .food-layout {
+    padding: 0 1em;
+    margin-top: 1em;
+  }
+  .food-border {
+    width: 170px;
+    height: 165px;
+    top: -20px;
+    left: -25px;
+  }
+  .food-image {
+    width: 120px;
+    height: 120px;
+  }
+  .food-title {
+    font-size: 1.3rem;
+    margin-top: 0.9em;
+  }
+  .food-price {
+    font-size: 0.8rem;
+  }
+  .food-desc {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .foodmenu-container {
+    padding: 2em 0em;
+  }
+  .restaurant-name {
+    font-size: 1.8rem;
+    margin-top: 1em;
+    padding-bottom: 0.3em;
+  }
+  .categories {
+    margin: 0 3em;
+  }
+  .cat-btn {
+    font-size: 1.3rem;
+  }
+  .food-border {
+    width: 170px;
+    height: 165px;
+    top: -20px;
+    left: -13px;
+  }
+  .food-image {
+    width: 120px;
+    height: 120px;
+  }
+  .food-layout {
+    padding: 0 1em;
+  }
+  .food-item {
+    width: 9em;
+    margin: 1.5em 0.5em;
+  }
+  .food-title {
+    font-size: 1rem;
+  }
+  .food-price {
+    font-size: 0.8rem;
+  }
+  .food-desc {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .food-layout {
+    margin-left: 4em;
+  }
+}
+/*# sourceMappingURL=foodmenu.css.map */

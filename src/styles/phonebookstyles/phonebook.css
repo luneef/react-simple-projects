@@ -1,0 +1,262 @@
+/* Containers - Title - Others */
+.phonebook-container {
+  color: white;
+  background-color: #9be7a9;
+  background-image: url("../../images/phonebookbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4em 0;
+}
+
+.phonebook-inner {
+  background-color: rgba(255, 255, 255, 0.37);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  max-width: 500px;
+  padding: 2em;
+  border-radius: 5em;
+}
+
+.phonebook-title {
+  font-size: 2.5rem;
+  color: #5f7a61;
+  text-shadow: 1px 2px white;
+  text-align: center;
+}
+
+/* Form */
+.phonebook-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1.9em;
+  margin-bottom: 4em;
+  position: relative;
+}
+
+.phonebook-form input[id] {
+  color: #31352f;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid white;
+  width: 19em;
+  font-size: 0.9rem;
+}
+
+.phonebook-form input[id]:focus, .phonebook-form input[id]:active {
+  outline: none;
+  color: black;
+}
+
+.phonebook-form input[id="name"] {
+  margin-bottom: 1.5em;
+}
+
+.phonebook-form input[id="number"] {
+  margin-bottom: 1.5em;
+}
+
+.phonebook-form input[id="email"] {
+  margin-bottom: 1.5em;
+}
+
+.phonebook-form input[type="submit"] {
+  width: 120px;
+  height: 30px;
+  color: #444941;
+  background-color: #d5eebb;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 2em;
+  position: absolute;
+  left: 80px;
+  top: 120px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 1px 2px #525050;
+          box-shadow: 0px 1px 2px #525050;
+}
+
+.phonebook-form input[type="submit"]:hover {
+  color: white;
+  background-color: #819170;
+}
+
+/* Contact List */
+.contact-container {
+  width: 90%;
+  border-top: 2px solid #5f7a61;
+  padding-top: 2em;
+}
+
+.contact-separator {
+  width: 80%;
+  word-wrap: break-word;
+  margin-right: 1em;
+}
+
+.contact-person {
+  margin-bottom: 1em;
+  background-color: #435238;
+  border-radius: 1em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em;
+}
+
+.contact-name {
+  font-size: 1.3rem;
+}
+
+.contact-number {
+  font-size: 1rem;
+  font-weight: 100;
+  color: #b1fdc0;
+}
+
+.contact-email {
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: #dfe9d6;
+}
+
+.edit-contact {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+.edit-contact:hover {
+  color: #529709;
+}
+
+.delete-contact {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.delete-contact:hover {
+  color: red;
+}
+
+.edit-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.delete-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-text {
+  display: none;
+  margin-right: 1.2em;
+  font-size: 0.8rem;
+}
+
+.delete-text {
+  display: none;
+  font-size: 0.8rem;
+}
+
+.clear-btn {
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  color: white;
+  background-color: #819170;
+  font-size: 0.9em;
+  text-align: center;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 1px 2px #525050;
+          box-shadow: 0px 1px 2px #525050;
+}
+
+.clear-btn:hover {
+  color: #5a5656;
+  background-color: #d5eebb;
+}
+
+.no-contacts {
+  color: #5f7a61;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+/* Media Queries */
+@media screen and (max-width: 850px) {
+  .edit-text {
+    display: block;
+  }
+  .delete-text {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .phonebook-inner {
+    padding: 2em 0em;
+    border-radius: 3em;
+  }
+  .phonebook-title {
+    font-size: 1.9rem;
+  }
+  input[id] {
+    width: 18em;
+  }
+}
+/*# sourceMappingURL=phonebook.css.map */

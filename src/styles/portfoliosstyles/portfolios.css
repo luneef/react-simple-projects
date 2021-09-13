@@ -1,0 +1,205 @@
+/* Containers - Title */
+.portfolio-container {
+  background-color: #51c4d3;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em 0;
+}
+
+.portfolio-card {
+  width: 90%;
+  max-width: 800px;
+  -webkit-box-shadow: 0 0 0.2rem 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 0.2rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5em;
+  position: relative;
+  text-align: center;
+}
+
+.portfolio-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* Beach Info */
+.beach-name {
+  color: white;
+  background-color: #50ddd1;
+  border-radius: 1em;
+  padding: 0.1em 0.5em;
+  margin-bottom: 0.4em;
+}
+
+.beach-location {
+  color: rgba(29, 76, 100, 0.651);
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  font-style: italic;
+  font-weight: 100;
+  position: relative;
+}
+
+.beach-info {
+  color: white;
+  font-weight: lighter;
+  margin-bottom: 0.4em;
+  background-color: rgba(255, 255, 255, 0.185);
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.beach-travel {
+  color: #6e8c8f;
+  background-color: rgba(255, 255, 255, 0.185);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+}
+
+.beach-image {
+  width: 400px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1em;
+  margin-bottom: 2em;
+}
+
+.left-select {
+  color: white;
+  position: absolute;
+  left: 110px;
+  top: 105px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.left-select:hover {
+  color: #225f5a;
+}
+
+.right-select {
+  color: white;
+  position: absolute;
+  right: 110px;
+  top: 105px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.right-select:hover {
+  color: #225f5a;
+}
+
+.more-btn {
+  border: none;
+  background: none;
+  color: #248f8f;
+  cursor: pointer;
+  margin-left: 0.2em;
+}
+
+.more-btn:hover {
+  text-decoration: underline;
+}
+
+.loc-icon {
+  width: 50px;
+  position: absolute;
+  top: 1px;
+  left: -35px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 930px) {
+  .portfolio-title {
+    font-size: 2rem;
+    margin-top: 2.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+@media screen and (max-width: 822px) {
+  .left-select {
+    width: 40px;
+    height: 40px;
+    top: 280px;
+    left: 130px;
+  }
+  .right-select {
+    width: 40px;
+    height: 40px;
+    top: 280px;
+    right: 130px;
+  }
+  .beach-image {
+    margin-bottom: 6em;
+    width: 350px;
+    height: 230px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .portfolio-title {
+    font-size: 1.5rem;
+    margin-top: 2.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .left-select {
+    width: 40px;
+    height: 40px;
+    top: 240px;
+    left: 100px;
+  }
+  .right-select {
+    width: 40px;
+    height: 40px;
+    top: 240px;
+    right: 100px;
+  }
+  .beach-image {
+    margin-bottom: 5em;
+    width: 290px;
+    height: 200px;
+  }
+}
+/*# sourceMappingURL=portfolios.css.map */

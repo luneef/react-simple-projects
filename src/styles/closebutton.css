@@ -1,0 +1,96 @@
+/* Elements */
+.close-btn {
+  color: white;
+  width: 2em;
+  height: 2em;
+}
+
+.close-btn:hover {
+  color: #dd7d7d;
+}
+
+.close-btn:hover + .close-word {
+  display: block;
+}
+
+.close-word {
+  display: none;
+  color: white;
+  margin-left: 0.2em;
+  font-size: 1.5em;
+  -webkit-animation: textslide 0.1s ease-out;
+          animation: textslide 0.1s ease-out;
+}
+
+.back-btn > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/* Animations */
+@-webkit-keyframes textslide {
+  0% {
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+@keyframes textslide {
+  0% {
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 850px) {
+  .back-btn > * {
+    top: 20px;
+    left: 20px;
+  }
+  .close-btn {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .close-word {
+    margin-left: 0.2em;
+    font-size: 1.4em;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .back-btn > * {
+    top: 20px;
+    left: 20px;
+  }
+  .close-btn {
+    width: 1em;
+    height: 1em;
+  }
+  .close-word {
+    margin-left: 0.2em;
+    font-size: 0.9em;
+    display: block;
+  }
+}
+/*# sourceMappingURL=closebutton.css.map */

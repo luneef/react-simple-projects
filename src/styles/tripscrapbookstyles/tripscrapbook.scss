@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
+
+/* Container - Title - Navigation Links */
+
+.trips-container {
+  color: rgb(87, 85, 85);
+  background-color: #f3ead3;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trip-header {
+  width: 100vw;
+  height: 10em;
+  background-color: #c2c7a7;
+  background-image: url("../../images/tripscrapbookfinalbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: rgb(78, 76, 76);
+    font-family: "Rampart One", cursive;
+    font-size: 3.5rem;
+    margin-bottom: 0.2em;
+  }
+}
+
+.trip-navlinks {
+  width: 33em;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+
+  button {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    padding-bottom: 0.3em;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px rgb(87, 85, 85);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    background-image: linear-gradient(rgb(87, 85, 85), rgb(87, 85, 85));
+    background-size: 0 3px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background-size: 100% 3px, auto;
+    }
+  }
+}
+
+/* Trips Feed */
+
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em 0;
+}
+
+.trip-item {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 600px;
+  background-color: white;
+  margin: 1.5em 0;
+  padding: 2em;
+  border-radius: 1.5em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.trip-title {
+  color: rgb(107, 94, 94);
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.trip-date {
+  margin-left: 0.1em;
+}
+
+.trip-address {
+  color: rgb(101, 101, 110);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+.trip-image {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 1em;
+}
+
+.option-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+
+  button {
+    border: none;
+    margin-left: 0.5em;
+    color: gray;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.favorite-button {
+  width: 23px;
+  height: 23px;
+  &:hover {
+    color: red;
+  }
+}
+
+.favorited {
+  width: 23px;
+  height: 23px;
+  color: red;
+}
+
+.edit-button {
+  width: 23px;
+  height: 23px;
+  &:hover {
+    color: rgb(9, 211, 9);
+  }
+}
+
+.delete-button {
+  width: 24px;
+  height: 25px;
+  &:hover {
+    color: rgb(7, 7, 94);
+  }
+}
+
+.trip-caption {
+  color: rgb(107, 94, 94);
+  text-align: justify;
+}
+
+.long-caption {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgb(10, 63, 133);
+  &:hover {
+    color: rgb(17, 118, 250);
+  }
+}
+
+/* Trip form */
+
+.addtrip-container {
+  padding: 4em 0;
+}
+
+.trip-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1em;
+  padding: 2em;
+  width: 90vw;
+  max-width: 600px;
+
+  div {
+    margin-bottom: 2em;
+  }
+
+  input[id] {
+    color: brown;
+    border: none;
+    border-bottom: 1px solid rgb(148, 144, 144);
+    width: 100%;
+    margin-top: 0.2em;
+    font-size: 1rem;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  .date-div {
+    width: 150px;
+
+    input[id="date"] {
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  textarea {
+    color: brown;
+    background-color: rgb(226, 223, 223);
+    border: none;
+    padding: 1em;
+    margin-top: 0.2em;
+    resize: none;
+    margin-bottom: 2em;
+    border-radius: 0.3em;
+    height: 150px;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  .action-buttons {
+    margin: 0 auto;
+
+    input[type="submit"] {
+      color: white;
+      background-color: rgb(87, 85, 85);
+      font-size: 1rem;
+      border-radius: 2em;
+      border: none;
+      padding: 0.7em 1.3em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: brown;
+      }
+    }
+
+    button {
+      color: white;
+      background-color: rgb(12, 94, 4);
+      font-size: 1rem;
+      border-radius: 2em;
+      border: none;
+      padding: 0.7em 1.3em;
+      margin-left: 2em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1366px) {
+  .trip-header {
+    h1 {
+      font-size: 3.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .trip-header {
+    height: 15em;
+
+    h1 {
+      text-align: center;
+      color: rgb(51, 50, 50);
+      font-size: 2.5rem;
+      margin-top: 1em;
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+  }
+
+  .trip-navlinks {
+    width: 25em;
+    margin-top: 1em;
+    justify-content: space-around;
+
+    button {
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-image: linear-gradient(rgb(136, 134, 134), rgb(136, 134, 134));
+    }
+  }
+
+  .feed-container {
+    padding: 1em 0;
+  }
+
+  .addtrip-container {
+    padding: 2.5em 0;
+  }
+
+  .trip-form {
+    .action-buttons {
+      button {
+        background-color: red;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .trip-header {
+    height: 11em;
+
+    h1 {
+      font-size: 1.8rem;
+      margin-top: 1.5em;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+  }
+
+  .trip-navlinks {
+    width: 20em;
+    margin-top: 0.5em;
+
+    button {
+      font-size: 1rem;
+    }
+  }
+
+  .trip-title {
+    font-size: 1.3rem;
+  }
+
+  .trip-image {
+    height: 200px;
+  }
+
+  .trip-form {
+    .action-buttons {
+      input[type="submit"] {
+        border-radius: 1.5em;
+        padding: 0.5em 1em;
+      }
+
+      button {
+        background-color: red;
+        border-radius: 1.5em;
+        padding: 0.5em 1em;
+        margin-left: 1em;
+      }
+    }
+  }
+}
