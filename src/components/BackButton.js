@@ -2,6 +2,7 @@ import "../styles/closebutton.css";
 import { BsFillBackspaceFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
+// Back(Exit) Button Component
 const BackButton = () => {
   return (
     <div className="back-btn">

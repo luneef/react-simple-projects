@@ -8,6 +8,7 @@ import JobExperiences from "./pages/jobexperiences/JobExperiences";
 import Phonebook from "./pages/phonebook/Phonebook";
 import MainScrapbook from "./pages/tripscrapbook/MainScrapbook";
 
+// Project Item Routes
 const App = () => {
   return (
     <Router>

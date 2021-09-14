@@ -1,6 +1,7 @@
 import BackButton from "../components/BackButton";
 import bg from "../images/catpage.jpg";
 
+// 404 Page Not Found Component
 const PageNotFound = () => {
   return (
     <div

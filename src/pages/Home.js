@@ -7,6 +7,7 @@ import experienceImg from "../images/projectthumbnails/experiencethumb.jpg";
 import phonebookImg from "../images/projectthumbnails/phonebookthumb.jpg";
 import scrapbookImg from "../images/projectthumbnails/scrapbookthumb.jpg";
 
+// Home(Homepage) Component
 const Home = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const Home = () => {
       </header>
 
       <main className="main">
+        {/* Birthday Reminder Project */}
         <div className="project-container">
           <div className="project-inner">
             <div className="project-front">
@@ -33,6 +35,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Philippine Beaches Project */}
         <div className="project-container">
           <div className="project-inner">
             <div className="project-front">
@@ -50,6 +53,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Food Menu Project */}
         <div className="project-container">
           <div className="project-inner">
             <div className="project-front">
@@ -66,6 +70,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Job Experiences Project */}
         <div className="project-container">
           <div className="project-inner">
             <div className="project-front">
@@ -83,6 +88,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Phonebook Project */}
         <div className="project-container">
           <div className="project-inner">
             <div className="project-front">
@@ -102,6 +108,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Trip Scrapbook Project */}
         <div className="project-container">
           <div className="project-inner">
             <div className="project-front">
