@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
 
-/* Container - Title - Navigation Links */
+/* Container - Title - Navigation Links - Back To Top */
 
 .trips-container {
   color: rgb(87, 85, 85);
@@ -58,6 +58,28 @@
     &:hover {
       background-size: 100% 3px, auto;
     }
+  }
+}
+
+.to-top {
+  color: rgb(87, 85, 85);
+  background-color: white;
+  padding: 1em;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+
+  & > * {
+    width: 40px;
+    height: 40px;
+  }
+
+  &:hover {
+    color: white;
+    background-color: rgb(87, 85, 85);
   }
 }
 
@@ -170,7 +192,7 @@
   }
 }
 
-/* Trip form */
+/* Trip Form */
 
 .addtrip-container {
   padding: 4em 0;
@@ -231,6 +253,7 @@
 
   .action-buttons {
     margin: 0 auto;
+    display: flex;
 
     input[type="submit"] {
       color: white;
@@ -246,10 +269,11 @@
       }
     }
 
-    button {
+    h2 {
       color: white;
       background-color: rgb(12, 94, 4);
       font-size: 1rem;
+      font-weight: lighter;
       border-radius: 2em;
       border: none;
       padding: 0.7em 1.3em;
@@ -270,6 +294,11 @@
     h1 {
       font-size: 3.2rem;
     }
+  }
+
+  .to-top {
+    bottom: 30px;
+    right: 30px;
   }
 }
 
@@ -299,6 +328,18 @@
     }
   }
 
+  .to-top {
+    color: white;
+    background-color: rgba(87, 85, 85, 0.8);
+    bottom: 30px;
+    right: 30px;
+
+    & > * {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
   .feed-container {
     padding: 1em 0;
   }
@@ -309,7 +350,7 @@
 
   .trip-form {
     .action-buttons {
-      button {
+      h2 {
         background-color: red;
       }
     }
@@ -337,6 +378,16 @@
     }
   }
 
+  .to-top {
+    bottom: 20px;
+    right: 20px;
+
+    & > * {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   .trip-title {
     font-size: 1.3rem;
   }
@@ -352,8 +403,7 @@
         padding: 0.5em 1em;
       }
 
-      button {
-        background-color: red;
+      h2 {
         border-radius: 1.5em;
         padding: 0.5em 1em;
         margin-left: 1em;

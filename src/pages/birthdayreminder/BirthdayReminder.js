@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import data from "./data";
 import BackButton from "../../components/BackButton";
 import "../../styles/birthdayreminderstyles/birthdayreminder.css";
 
-const BirthdayList = ({ bdaylist, onClick }) => {
+// Displaying each birthday info component
+const BirthdayList = ({ bdaylist, removeBday }) => {
   return (
     <>
       {bdaylist.map((bday) => {
@@ -14,7 +16,7 @@ const BirthdayList = ({ bdaylist, onClick }) => {
             <p className="bday-age">{bday.age} years old</p>
             <button
               className="remove-btn"
-              onClick={() => onClick(bday.id, bday.name)}
+              onClick={() => removeBday(bday.id, bday.name)}
             >
               Remove
             </button>
@@ -25,6 +27,7 @@ const BirthdayList = ({ bdaylist, onClick }) => {
   );
 };
 
+// Birthday reminder main component
 const BirthdayReminder = () => {
   const [birthdays, setBirthdays] = useState(data);
   const [removedPerson, setRemovedPerson] = useState("");
@@ -34,7 +37,9 @@ const BirthdayReminder = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const onClick = (id, name) => {
+  // Remove birthday function
+  const removeBday = (id, name) => {
+    toast.success(`${name} Successfully Removed`);
     setBirthdays(birthdays.filter((bdays) => bdays.id !== id));
     setRemovedPerson(name);
     setIsChanged(true);
@@ -46,7 +51,7 @@ const BirthdayReminder = () => {
       <h1 className="bday-title">Greet Them A "Happy Birthday!"</h1>
       <div className="bday-card">
         {birthdays.length ? (
-          <BirthdayList bdaylist={birthdays} onClick={onClick} />
+          <BirthdayList bdaylist={birthdays} removeBday={removeBday} />
         ) : (
           <h3 className="no-bdays">No More Birthdays Today</h3>
         )}
@@ -58,6 +63,7 @@ const BirthdayReminder = () => {
           <p className="bday-count">{birthdays.length} Birthdays Today</p>
         )}
       </div>
+      <ToastContainer position="top-center" />
     </section>
   );
 };

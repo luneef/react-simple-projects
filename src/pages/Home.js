@@ -7,7 +7,7 @@ import experienceImg from "../images/projectthumbnails/experiencethumb.jpg";
 import phonebookImg from "../images/projectthumbnails/phonebookthumb.jpg";
 import scrapbookImg from "../images/projectthumbnails/scrapbookthumb.jpg";
 
-// Home(Homepage) Component
+// Home(Homepage) Component - Display project items
 const Home = () => {
   return (
     <>

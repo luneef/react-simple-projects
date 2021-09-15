@@ -4,6 +4,7 @@ import BackButton from "../../components/BackButton";
 import "../../styles/foodmenustyles/foodmenu.css";
 import foodborder from "../../images/foodborder.png";
 
+// Component for setting all food categories available
 const GetCategories = ({ foodmenu, catSelected, allbtn }) => {
   const category = [
     "All",
@@ -35,6 +36,7 @@ const GetCategories = ({ foodmenu, catSelected, allbtn }) => {
   );
 };
 
+// Food menu main component
 const FoodMenu = () => {
   const [foodmenu, setMenu] = useState(menu);
   const [allbtn, setAllBtn] = useState(true);
@@ -43,6 +45,7 @@ const FoodMenu = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Function to determine what category is pick and should be displayed
   const catSelected = (category) => {
     if (category === "All") {
       setMenu(menu);

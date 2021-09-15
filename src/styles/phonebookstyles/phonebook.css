@@ -45,7 +45,7 @@
   text-align: center;
 }
 
-/* Form */
+/* Contact Form */
 .phonebook-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,9 +117,9 @@
 }
 
 .contact-separator {
-  width: 80%;
+  width: 70%;
   word-wrap: break-word;
-  margin-right: 1em;
+  margin-right: 1.5em;
 }
 
 .contact-person {
@@ -239,6 +239,10 @@
 
 /* Media Queries */
 @media screen and (max-width: 850px) {
+  .contact-separator {
+    width: 60%;
+    margin-right: 1em;
+  }
   .edit-text {
     display: block;
   }

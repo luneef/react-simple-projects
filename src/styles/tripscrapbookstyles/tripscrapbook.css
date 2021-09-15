@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
-/* Container - Title - Navigation Links */
+/* Container - Title - Navigation Links - Back To Top */
 .trips-container {
   color: #575555;
   background-color: #f3ead3;
@@ -79,6 +79,28 @@
 
 .trip-navlinks button:hover {
   background-size: 100% 3px, auto;
+}
+
+.to-top {
+  color: #575555;
+  background-color: white;
+  padding: 1em;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.to-top > * {
+  width: 40px;
+  height: 40px;
+}
+
+.to-top:hover {
+  color: white;
+  background-color: #575555;
 }
 
 /* Trips Feed */
@@ -212,7 +234,7 @@
   color: #1176fa;
 }
 
-/* Trip form */
+/* Trip Form */
 .addtrip-container {
   padding: 4em 0;
 }
@@ -276,6 +298,9 @@
 
 .trip-form .action-buttons {
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .trip-form .action-buttons input[type="submit"] {
@@ -292,10 +317,11 @@
   background-color: brown;
 }
 
-.trip-form .action-buttons button {
+.trip-form .action-buttons h2 {
   color: white;
   background-color: #0c5e04;
   font-size: 1rem;
+  font-weight: lighter;
   border-radius: 2em;
   border: none;
   padding: 0.7em 1.3em;
@@ -303,7 +329,7 @@
   cursor: pointer;
 }
 
-.trip-form .action-buttons button:hover {
+.trip-form .action-buttons h2:hover {
   background-color: red;
 }
 
@@ -311,6 +337,10 @@
 @media screen and (max-width: 1366px) {
   .trip-header h1 {
     font-size: 3.2rem;
+  }
+  .to-top {
+    bottom: 30px;
+    right: 30px;
   }
 }
 
@@ -338,13 +368,23 @@
     background-image: -webkit-gradient(linear, left top, left bottom, from(#888686), to(#888686));
     background-image: linear-gradient(#888686, #888686);
   }
+  .to-top {
+    color: white;
+    background-color: rgba(87, 85, 85, 0.8);
+    bottom: 30px;
+    right: 30px;
+  }
+  .to-top > * {
+    width: 30px;
+    height: 30px;
+  }
   .feed-container {
     padding: 1em 0;
   }
   .addtrip-container {
     padding: 2.5em 0;
   }
-  .trip-form .action-buttons button {
+  .trip-form .action-buttons h2 {
     background-color: red;
   }
 }
@@ -366,6 +406,14 @@
   .trip-navlinks button {
     font-size: 1rem;
   }
+  .to-top {
+    bottom: 20px;
+    right: 20px;
+  }
+  .to-top > * {
+    width: 20px;
+    height: 20px;
+  }
   .trip-title {
     font-size: 1.3rem;
   }
@@ -376,8 +424,7 @@
     border-radius: 1.5em;
     padding: 0.5em 1em;
   }
-  .trip-form .action-buttons button {
-    background-color: red;
+  .trip-form .action-buttons h2 {
     border-radius: 1.5em;
     padding: 0.5em 1em;
     margin-left: 1em;

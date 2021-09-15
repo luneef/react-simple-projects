@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import BackButton from "../../components/BackButton";
 import { BsFillTrashFill, BsPencil } from "react-icons/bs";
 import "../../styles/phonebookstyles/phonebook.css";
 import backgrounds from "./backgrounds";
 
+// Function for getting phonebook list data stored in local storage
 const getContacts = () => {
   const list = localStorage.getItem("list");
   if (list) {
@@ -13,6 +15,7 @@ const getContacts = () => {
   }
 };
 
+// Component for displaying phonebooks added to list
 const PhoneBookList = ({ list, editContact, removeContact }) => {
   return (
     <div className="contact-container">
@@ -47,7 +50,11 @@ const PhoneBookList = ({ list, editContact, removeContact }) => {
               <BsFillTrashFill
                 className="delete-contact"
                 title="Delete"
-                onClick={() => removeContact(list.id)}
+                onClick={() =>
+                  window.confirm(`Remove ${list.name} ?`)
+                    ? removeContact(list.id)
+                    : ""
+                }
               />
               <p className="delete-text">Delete</p>
             </div>
@@ -58,12 +65,14 @@ const PhoneBookList = ({ list, editContact, removeContact }) => {
   );
 };
 
+// Component for displaying, editing, and set-up form for phonebook entry
 const PhoneBookForm = ({ newContact, edit, contactEdit, finalEdit }) => {
   const nameRef = useRef();
   const numberRef = useRef();
   const emailRef = useRef();
   let editID;
 
+  // Condition triggered when editing a contact
   if (edit) {
     const { id, name, number, email } = contactEdit[0];
     editID = id;
@@ -74,6 +83,7 @@ const PhoneBookForm = ({ newContact, edit, contactEdit, finalEdit }) => {
     nameRef.current.focus();
   }
 
+  // Function used to handle "Add/Edit" click event
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -138,20 +148,24 @@ const PhoneBookForm = ({ newContact, edit, contactEdit, finalEdit }) => {
   );
 };
 
+// Phonebook project main component
 const Phonebook = () => {
   const [list, setList] = useState(getContacts());
   const [contactEdit, setContactEdit] = useState([]);
   const [edit, setEdit] = useState(false);
 
+  // Function for adding a new contact to phonebook local data
   const newContact = (newPerson) => {
     setList([...list, newPerson]);
   };
 
+  // Function for setting up the contact info to edit
   const editContact = (id) => {
     setContactEdit(list.filter((lists) => lists.id === id));
     setEdit(true);
   };
 
+  // Function for updating the contact info in local storage
   const finalEdit = (finalInfo) => {
     setList(
       list.map((lists) =>
@@ -169,10 +183,13 @@ const Phonebook = () => {
     setEdit(false);
   };
 
+  // Function for handling contact removal
   const removeContact = (id) => {
     setList(list.filter((lists) => lists.id !== id));
+    toast.success("Contact Successfully Removed");
   };
 
+  // Hook/Process of storing phonebook data to local storage
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
   }, [list]);
@@ -194,13 +211,19 @@ const Phonebook = () => {
           removeContact={removeContact}
         />
         {list.length ? (
-          <button className="clear-btn" onClick={() => setList([])}>
+          <button
+            className="clear-btn"
+            onClick={() =>
+              window.confirm(`Clear All Contacts ?`) ? setList([]) : ""
+            }
+          >
             Clear Contacts
           </button>
         ) : (
           <p className="no-contacts">No Contacts</p>
         )}
       </div>
+      <ToastContainer position="top-center" />
     </section>
   );
 };

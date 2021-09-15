@@ -57,7 +57,7 @@
   color: #534f4f;
 }
 
-/* Birthday List */
+/* Birthday List - Birthday Item */
 .bday-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -109,7 +109,7 @@
 }
 
 .remove-btn:hover {
-  background-color: #3f6e99;
+  background-color: #860606;
 }
 
 /* Media Queries */

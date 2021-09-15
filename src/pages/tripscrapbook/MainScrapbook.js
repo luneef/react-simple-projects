@@ -5,13 +5,19 @@ import BackButton from "../../components/BackButton";
 import fireDB from "./firebase";
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/tripscrapbookstyles/tripscrapbook.css";
-import { BsHeartFill, BsBrush, BsFillTrash2Fill } from "react-icons/bs";
+import {
+  BsHeartFill,
+  BsBrush,
+  BsFillTrash2Fill,
+  BsFillShiftFill,
+} from "react-icons/bs";
 import defaultimage from "../../images/noimage.jpg";
 
-//Image
+// Component to determine if image is available
 const ImageVerifier = ({ imgverify }) => {
   const [imageVerified, isImageVerified] = useState(false);
 
+  // Function to verify if image url is valid
   function checkImage(url) {
     var image = new Image();
     image.onload = function () {
@@ -38,39 +44,81 @@ const ImageVerifier = ({ imgverify }) => {
   );
 };
 
-// Display all trips
+// Component for displaying "Back to top" button
+const ScrollToTop = () => {
+  const [scrolltop, isScrollTop] = useState(false);
+
+  // Function for determining the screen position for displaying the button
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      isScrollTop(true);
+    } else {
+      isScrollTop(false);
+    }
+  };
+
+  // Process of mounting/unmounting scroll event listener
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <button
+      style={scrolltop ? { display: "block" } : { display: "none" }}
+      className="to-top"
+      title="Back To Top"
+      onClick={() =>
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        })
+      }
+    >
+      <BsFillShiftFill />
+    </button>
+  );
+};
+
+// Component for displaying all trips from firebase API
 const AllTrips = ({ editTrip }) => {
   const [trips] = useContext(TripsContext);
   const [readMore, isReadMore] = useState(false);
 
+  // Function for adding a trip to "Favorites" while in "All Trips"
   const addToFavorites = (trip) => {
     const fav = { ...trips[trip], favorite: true };
     fireDB.child(`thetrips/${trip}`).set(fav, (error) => {
       if (error) {
-        toast.error("Not Added");
+        toast.error("Trip Not Added To Favorites");
       } else {
         toast.success("Trip Added To Favorites");
       }
     });
   };
 
+  // Function for removing a trip from "Favorites" both from UI and firebase
   const removeFavorite = (trip) => {
     const removefav = { ...trips[trip], favorite: false };
     fireDB.child(`thetrips/${trip}`).set(removefav, (error) => {
       if (error) {
-        toast.error("Not Removed");
+        toast.error("Trip Not Removed From Favorites");
       } else {
-        toast.success("Trip Remove From Favorites");
+        toast.success("Trip Removed From Favorites");
       }
     });
   };
 
+  // Function for deleting a trip both from the UI and firebase
   const deleteTrip = (trip) => {
     fireDB.child(`thetrips/${trip}`).remove((error) => {
       if (error) {
-        toast.error(error);
+        toast.error("Trip Not Removed");
       } else {
-        toast.success("Trip succesfully Deleted");
+        toast.success("Trip Removed");
       }
     });
   };
@@ -103,16 +151,24 @@ const AllTrips = ({ editTrip }) => {
                     <BsHeartFill className="favorite-button" />
                   </button>
                 )}
+
                 <button
                   title="Edit"
                   onClick={() => editTrip(trip, trips[trip])}
                 >
                   <BsBrush className="edit-button" />
                 </button>
-                <button title="Delete" onClick={() => deleteTrip(trip)}>
+
+                <button
+                  title="Delete"
+                  onClick={() =>
+                    window.confirm("Delete Trip ?") ? deleteTrip(trip) : ""
+                  }
+                >
                   <BsFillTrash2Fill className="delete-button" />
                 </button>
               </div>
+
               <p className="trip-caption">
                 {trips[trip].caption.length > 220
                   ? `${trips[trip].caption.substring(0, 218)}`
@@ -146,22 +202,25 @@ const AllTrips = ({ editTrip }) => {
         })
         .reverse()}
       <ToastContainer position="top-center" />
+
+      <ScrollToTop />
     </section>
   );
 };
 
-// Display favorite trips
+// Component for displaying favorite trips
 const FavoriteTrips = () => {
   const [trips] = useContext(TripsContext);
   const [readMore, isReadMore] = useState(false);
 
+  // Function for removing a trip from "Favorites"
   const removeFavorite = (trip) => {
     const removefav = { ...trips[trip], favorite: false };
     fireDB.child(`thetrips/${trip}`).set(removefav, (error) => {
       if (error) {
-        toast.error("Not Removed");
+        toast.error("Trip Not Removed From Favorites");
       } else {
-        toast.success("Trip Remove From Favorites");
+        toast.success("Trip Removed From Favorites");
       }
     });
   };
@@ -227,13 +286,16 @@ const FavoriteTrips = () => {
         );
       })}
       <ToastContainer position="top-center" />
+
+      <ScrollToTop />
     </section>
   );
 };
 
-// Add or Edit Trip
-
+// Component handling adding/editing of a trip
 const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
+  window.scrollTo(0, 0);
+
   const [trips] = useContext(TripsContext);
 
   const title = useRef();
@@ -242,6 +304,7 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
   const image = useRef();
   const caption = useRef();
 
+  // Function adding/updating info of a specific trip
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -257,9 +320,9 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
 
       fireDB.child(`thetrips/${tripID}`).set(editTrip, (error) => {
         if (error) {
-          toast.error("Not Added");
+          toast.error("Trip Not Edited");
         } else {
-          toast.success("Trip Edited");
+          toast.success("Trip Successfully Edited");
         }
       });
     } else {
@@ -274,9 +337,9 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
 
       fireDB.child("thetrips").push(newTrip, (error) => {
         if (error) {
-          toast.error("Not Added");
+          toast.error("Trip Not Added");
         } else {
-          toast.success("Trip added successfully! Hooray!");
+          toast.success("Trip Added Successfully");
         }
       });
     }
@@ -290,6 +353,7 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
     backToAll();
   };
 
+  // Function for resetting input values and going back to the main component
   const cancelEdit = () => {
     title.current.value = "";
     date.current.value = "";
@@ -310,6 +374,7 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
             id="title"
             defaultValue={edit ? tripToEdit.title : ""}
             ref={title}
+            autoFocus
             required
           />
         </div>
@@ -361,7 +426,19 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
             value={edit ? "Edit Trip" : "Add To Scrapbook"}
           />
 
-          {edit ? <button onClick={cancelEdit}>Cancel Edit</button> : ""}
+          {edit ? (
+            <h2
+              onClick={() =>
+                window.confirm("Do you want to cancel editing ?")
+                  ? cancelEdit()
+                  : ""
+              }
+            >
+              Cancel Edit
+            </h2>
+          ) : (
+            ""
+          )}
         </div>
       </form>
 
@@ -370,17 +447,16 @@ const AddTrip = ({ edit, tripID, tripToEdit, backToAll }) => {
   );
 };
 
-// Main Page
+// Main component of "Trip Scrapbook" project
 const MainScrapbook = () => {
+  window.scrollTo(0, 0);
+
   const [page, setPage] = useState("all");
   const [edit, setEdit] = useState(false);
   const [tripID, setTripID] = useState("");
   const [tripToEdit, setTripToEdit] = useState({});
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+  // Function to setup which trip to edit
   const editTrip = (trip, editThisTrip) => {
     setEdit(true);
     setTripID(trip);
@@ -388,6 +464,7 @@ const MainScrapbook = () => {
     setPage("add");
   };
 
+  // Setting up homepage
   const backToAll = () => {
     setPage("all");
     setEdit(false);

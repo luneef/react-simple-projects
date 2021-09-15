@@ -3,8 +3,10 @@ import BackButton from "../../components/BackButton";
 import PageNotFound from "../PageNotFound";
 import "../../styles/jobexperiencesstyles/jobexperiences.css";
 
+// Setting-up the API as value for the variable "url"
 const url = "https://course-api.com/react-tabs-project";
 
+// Component to display each job's company name in a button
 const JobDescription = ({ jobs, jobPreview, firstJob }) => {
   return (
     <nav className="combtn-container">
@@ -31,6 +33,7 @@ const JobDescription = ({ jobs, jobPreview, firstJob }) => {
   );
 };
 
+// Job experiences main component
 const JobExperiences = () => {
   const [jobs, setJobs] = useState([]);
   const [seljob, setSelJob] = useState([]);
@@ -38,6 +41,7 @@ const JobExperiences = () => {
   const [error, isError] = useState(false);
   const [firstJob, setFirstJob] = useState(true);
 
+  // Fetching the jobs data from the API
   const getJobs = async () => {
     try {
       const response = await fetch(url);
@@ -55,6 +59,7 @@ const JobExperiences = () => {
     getJobs();
   }, []);
 
+  // Conditional expression to display status of data being fetch
   if (loading) {
     if (error) {
       return <PageNotFound />;
@@ -67,6 +72,7 @@ const JobExperiences = () => {
     );
   }
 
+  // Function to determine which job to display
   const jobPreview = (company) => {
     const title = jobs.filter((job) => job.company === company);
     setSelJob(title[0]);

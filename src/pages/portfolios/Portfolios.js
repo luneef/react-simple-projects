@@ -4,6 +4,7 @@ import BackButton from "../../components/BackButton";
 import "../../styles/portfoliosstyles/portfolios.css";
 import { BsChevronRight, BsChevronLeft, BsGeoAlt } from "react-icons/bs";
 
+// Beaches portfolio main component
 const Portfolios = () => {
   const [selector, setSelector] = useState(0);
   const { id, name, location, info, image, travel } = beaches[selector];
@@ -13,6 +14,7 @@ const Portfolios = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Go to next beach function
   const nextSelect = () => {
     setSelector(() => {
       if (selector < beaches.length - 1) {
@@ -24,6 +26,7 @@ const Portfolios = () => {
     setMore(false);
   };
 
+  // Go to previous beach function
   const prevSelect = () => {
     setSelector(() => {
       if (selector > 0) {

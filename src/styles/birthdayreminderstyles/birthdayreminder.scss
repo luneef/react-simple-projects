@@ -48,7 +48,7 @@
   color: rgb(83, 79, 79);
 }
 
-/* Birthday List */
+/* Birthday List - Birthday Item */
 
 .bday-list {
   display: flex;
@@ -93,7 +93,7 @@
   padding: 1em;
 
   &:hover {
-    background-color: #3f6e99;
+    background-color: rgb(134, 6, 6);
   }
 }
 
